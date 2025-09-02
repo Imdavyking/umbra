@@ -1,0 +1,37 @@
+{
+  "name": "@zkbadge/zkbadge-contract",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "compact": "run-compactc src/zkbadge.compact ./src/managed/zkbadge",
+    "build": "rm -rf dist && tsc --project tsconfig.build.json && cp -R ./src/managed ./dist/managed && cp ./src/zkbadge.compact dist",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:compile": "npm run compact && vitest run",
+    "prepack": "yarn build"
+  },
+  "devDependencies": {
+    "@zkbadge/zkbadge-compact": "workspace:*",
+    "eslint": "^9.27.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "js-sha256": "^0.11.1"
+  }
+}

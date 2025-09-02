@@ -1,0 +1,646 @@
+{
+  "circuits": [
+    {
+      "name": "cert_hash",
+      "pure": true,
+      "arguments": [
+        {
+          "name": "cert",
+          "type": {
+            "type-name": "Struct",
+            "name": "Certificate",
+            "elements": [
+              {
+                "name": "issuer",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "issued_at",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "valid_until",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "is_valid",
+                "type": {
+                  "type-name": "Boolean"
+                }
+              },
+              {
+                "name": "owner",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "year_of_birth",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 65535
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "add_trusted_issuer",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "issuer",
+          "type": {
+            "type-name": "Struct",
+            "name": "ZswapCoinPublicKey",
+            "elements": [
+              {
+                "name": "bytes",
+                "type": {
+                  "type-name": "Bytes",
+                  "length": 32
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "remove_trusted_issuer",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "issuer",
+          "type": {
+            "type-name": "Struct",
+            "name": "ZswapCoinPublicKey",
+            "elements": [
+              {
+                "name": "bytes",
+                "type": {
+                  "type-name": "Bytes",
+                  "length": 32
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "register",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "issuer",
+          "type": {
+            "type-name": "Struct",
+            "name": "ZswapCoinPublicKey",
+            "elements": [
+              {
+                "name": "bytes",
+                "type": {
+                  "type-name": "Bytes",
+                  "length": 32
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "issued_at",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "valid_until",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "is_valid",
+          "type": {
+            "type-name": "Boolean"
+          }
+        },
+        {
+          "name": "year_of_birth",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 65535
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "verify_certificates",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "hashes",
+          "type": {
+            "type-name": "Vector",
+            "length": 10,
+            "type": {
+              "type-name": "Struct",
+              "name": "Maybe",
+              "elements": [
+                {
+                  "name": "is_some",
+                  "type": {
+                    "type-name": "Boolean"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "type-name": "Bytes",
+                    "length": 32
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "check_verification",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "cert",
+          "type": {
+            "type-name": "Struct",
+            "name": "Certificate",
+            "elements": [
+              {
+                "name": "issuer",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "issued_at",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "valid_until",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "is_valid",
+                "type": {
+                  "type-name": "Boolean"
+                }
+              },
+              {
+                "name": "owner",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "year_of_birth",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 65535
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "create_feature",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "feature_name",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "min_age",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 65535
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "category",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "image_url",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "created_at",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "coin_type",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "access_private_feature",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "cert",
+          "type": {
+            "type-name": "Struct",
+            "name": "Certificate",
+            "elements": [
+              {
+                "name": "issuer",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "issued_at",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "valid_until",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "is_valid",
+                "type": {
+                  "type-name": "Boolean"
+                }
+              },
+              {
+                "name": "owner",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "year_of_birth",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 65535
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_id",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "payment",
+          "type": {
+            "type-name": "Struct",
+            "name": "CoinInfo",
+            "elements": [
+              {
+                "name": "nonce",
+                "type": {
+                  "type-name": "Bytes",
+                  "length": 32
+                }
+              },
+              {
+                "name": "color",
+                "type": {
+                  "type-name": "Bytes",
+                  "length": 32
+                }
+              },
+              {
+                "name": "value",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 340282366920938463463374607431768211455
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "withdrawFunds",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "feature_id",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "_coinType",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "vote_on_feature",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "cert",
+          "type": {
+            "type-name": "Struct",
+            "name": "Certificate",
+            "elements": [
+              {
+                "name": "issuer",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "issued_at",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "valid_until",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 18446744073709551615
+                }
+              },
+              {
+                "name": "is_valid",
+                "type": {
+                  "type-name": "Boolean"
+                }
+              },
+              {
+                "name": "owner",
+                "type": {
+                  "type-name": "Struct",
+                  "name": "ZswapCoinPublicKey",
+                  "elements": [
+                    {
+                      "name": "bytes",
+                      "type": {
+                        "type-name": "Bytes",
+                        "length": 32
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "year_of_birth",
+                "type": {
+                  "type-name": "Uint",
+                  "maxval": 65535
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_id",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "like",
+          "type": {
+            "type-name": "Boolean"
+          }
+        },
+        {
+          "name": "vote_salt",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "get_feature_votes",
+      "pure": false,
+      "arguments": [
+        {
+          "name": "feature_id",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Struct",
+        "name": "VoteTally",
+        "elements": [
+          {
+            "name": "up",
+            "type": {
+              "type-name": "Uint",
+              "maxval": 18446744073709551615
+            }
+          },
+          {
+            "name": "down",
+            "type": {
+              "type-name": "Uint",
+              "maxval": 18446744073709551615
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
